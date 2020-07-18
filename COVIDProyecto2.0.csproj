@@ -709,11 +709,11 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="BLCovid\BLCovid.csproj">
+    <ProjectReference Include="..\BLCovid\BLCovid.csproj">
       <Project>{6e848176-82d8-407e-ae17-4ff7f69070f3}</Project>
       <Name>BLCovid</Name>
     </ProjectReference>
-    <ProjectReference Include="DACovid\DACovid.csproj">
+    <ProjectReference Include="..\DACovid\DACovid.csproj">
       <Project>{85cd3845-4a55-45f5-a031-6c03e821a5a8}</Project>
       <Name>DACovid</Name>
     </ProjectReference>
