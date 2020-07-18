@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Listado";
+}
+
+<h2>Listado</h2>
+
+@using DACovid
+@{
+    List<PersonaTriaje> listado = (List<PersonaTriaje>)ViewBag.ListadoPersona;
+}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>IDPersGeneral</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Edad</th>
+            <td>Sexo</td>
+            <td>Ocupacion</td>
+            <td>Sintomas</td>
+            <td>Direccion</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (PersonaTriaje item in listado)
+        {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.IDPersonalGeneral</td>
+            <td>@item.Nombres</td>
+            <td>@item.Apellidos</td>
+            <td>@item.Edad</td>
+            <td>@item.Sexo</td>
+            <td>@item.Ocupacion</td>
+            <td>@item.Sintomas</td>
+            <td>@item.Direccion</td>
+            <td>
+                <input type = "button"
+                        id = "btnEditar"
+                        data - codigo = "@item.Nombres"
+                        class="btnEditar btn btn-warning"
+                        value="Editar"/>
+            </td>
+            </tr>
+                        }
+    </tbody>
+
+
+</table>

@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <link href="~/Estilos/Style1.css" rel="stylesheet" type="text/css" />
+    <link href="~/Estilos/Style.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script data-require="moment.js" data-semver="2.14.1" src="https://npmcdn.com/moment@2.14.1"></script>
+</head>
+
+<body style="padding: 0px; ">
+
+    <nav class="navbar navbar-default" style="padding: 0px 100px; border: none; height:100%;background-color:#ff5656; border-radius:0px; color: black">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand logo" style="font-size:24px; color:white; user-select:none" href="@Url.Action("Index","Main",new { Area = "Main" })">#YoApoyoPerú</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <h4 id="clock" class="navbar-text" style="margin-right: 0px;color:white; user-select:none ">Loading...</h4>
+                </li>
+
+                <li class="dropdown">
+                    <a style="color:white;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
+                    <ul class="dropdown-menu" style="text-align: center;">
+                        <li><a href="@Url.Action("Index","Main",new { Area = "Main" })">Volver al Menu</a></li>
+                    </ul>
+                </li>
+
+
+
+            </ul>
+        </div>
+    </nav>
+    <div class="">
+        @RenderBody()
+    </div>
+
+
+</body>
+</html>
+
+<script>
+    setInterval(function () {
+        document.getElementById("clock").innerText = moment().format('MMMM Do YYYY, h:mm:ss a');
+    }, 1000)
+</script>

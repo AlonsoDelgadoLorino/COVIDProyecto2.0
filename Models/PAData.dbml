@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="YoApoyoPeruBD" Class="PADataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=YoApoyoPeruBD;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="YoApoyoPeruBDConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.PersonalAdmin" Member="BOPersonalAdmin">
+    <Type Name="BOPersonalAdmin">
+      <Column Name="id_personal" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombrePersonal" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidosPersonal" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="contraseña" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="estado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

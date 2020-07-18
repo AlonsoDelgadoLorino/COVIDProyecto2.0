@@ -1,0 +1,21 @@
+CREATE TABLE PersonalAdmin (
+    id_personal int IDENTITY(1,1) PRIMARY KEY,
+    nombrePersonal varchar(50) NOT NULL,
+    apellidosPersonal varchar(100),
+    contraseña varchar(100),
+	estado int NOT NULL,
+);
+
+USE [YoApoyoPeruBD]
+GO
+
+INSERT INTO [dbo].[PersonalAdmin]
+           ([nombrePersonal]
+           ,[apellidosPersonal]
+           ,[contraseña]
+           ,[estado])
+     VALUES
+           ('Alonso', 'Delgado Lorino','sasuke10',1)
+GO
+
+select * from PersonalAdmin

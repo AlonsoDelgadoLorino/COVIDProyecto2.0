@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Areas/PersonalAdmin/Views/Shared/_Menulayout.cshtml";
+}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="~/Estilos/Style4.css" rel="stylesheet" />
+
+<ul class="ul-menu" style="color: black;">
+    <li onclick="location.href='@Url.Action("Reporte","PersonalAdmin",new { Area = "PersonalAdmin" })';">
+        <span class="name">Registro Situacional</span>
+        <span><i class="fa fa-bar-chart" aria-hidden="true"></i></span>
+    </li>
+    <li onclick="location.href='@Url.Action("Index","PersonaTriaje",new { Area = "AreaPersonaTriaje" })';">
+        <span class="name">Triaje Digital</span>
+        <span><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
+    </li>
+    <li>
+        <span class="name">Registro de personas en extrema pobreza</span>
+        <span><i class="fa fa-book" aria-hidden="true"></i></span>
+    </li>
+    <li>
+        <span class="name">Registro de donaciones</span>
+        <span><i class="fa fa-cart-plus" aria-hidden="true"></i></span>
+    </li>
+    <li>
+        <span class="name">Confirmación de recepción de donaciones</span>
+        <span><i class="fa fa-archive" aria-hidden="true"></i></span>
+    </li>
+    <li>
+        <span class="name">Entrega de donaciones</span>
+        <span><i class="fa fa-car" aria-hidden="true"></i></span>
+    </li>
+    <li>
+        <span class="name">Reporte de Triajes</span>
+        <span><i class="fa fa-file-text-o" aria-hidden="true"></i></span>
+    </li>
+    <li onclick="location.href='@Url.Action("Index", "Recepcion", new { Area = "Administrador" })';">
+        <span class="name">Recepción de donaciones</span>
+        <span><i class="fa fa-file-text-o" aria-hidden="true"></i></span>
+    </li>
+    <li onclick="location.href='@Url.Action("Index","RDonaciones",new { Area = "Administrador" })';">
+        <span class="name">Reporte de donaciones</span>
+        <span><i class="fa fa-file-text" aria-hidden="true"></i></span>
+    </li>
+
+</ul>

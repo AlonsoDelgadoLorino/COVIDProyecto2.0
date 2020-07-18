@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Areas/PersonalAdmin/Views/Shared/_Adminlayout.cshtml";
+}
+
+<body id="bodyLogin">
+    <section id="loginAdmin">
+        <div class="login-box">
+            <ion-icon name="person-circle-outline" class="avatar"></ion-icon>
+            <h1>Personal Administrativo</h1>
+            <form id="formLogin">
+            @*<form id="formLogin" method="post" action="@Url.Action("Login","PersonalAdmin",new { Area = "PersonalAdmin" })">*@ 
+                <label for="username">Usuario</label>
+                <input type="text" name="txtUsuario" id="txtUsuario" placeholder="Ingresar usuario">
+                <label for="password">Contraseña</label>
+                <input type="password" name="txtPass" autocomplete="on" id="txtPass" placeholder="Ingresar contraseña">
+                <input type="submit" id="btnLogin" value="Ingresar">
+
+            </form>
+        </div>
+       
+    </section>
+
+</body>
+
+<script>
+    $("#btnLogin").click(function () {
+        var vUser = $("#txtUsuario").val();
+        var vPassword = $("#txtPass").val();
+        
+        if (vUser == "" || vPassword == "") {
+            alert("Rellenar todos los campos");
+            return false;
+        }
+        $.ajax({
+            type: "POST",
+            url: "/PersonalAdmin/PersonalAdmin/LogearUsuario",
+            data: { user: vUser, pass: vPassword },
+            success: function (data) {
+                if (data==true) {
+                    alert("Usuario y contraseña correctos");
+                    window.location.href = '@Url.Action("Menu","PersonalAdmin",new { Area = "PersonalAdmin" })'
+                } else {
+                    alert("Usuario y/o contraseña incorrecto");
+                }
+            }
+        });
+    });
+
+</script>

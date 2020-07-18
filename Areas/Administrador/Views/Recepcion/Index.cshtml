@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Main/Views/Shared/_Menulayout.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<div style="padding-right: 100px;
+    padding-left: 100px;
+    margin-right: auto;
+    margin-left: auto;
+}">
+    <div class="alert alert-info">
+        <strong>Recepcion de Donaciones</strong>
+    </div>
+    <hr />
+    <br />
+    <br />
+    <div class="alert alert-info">
+        <strong>Listado de Donaciones</strong>
+    </div>
+    <br />
+    <div id="divListadoDonaciones">
+
+    </div>
+
+    <div id="modalDonaciones" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Cambio de estado</h4>
+                </div>
+                <div class="modal-body">
+                    <label>Tipo de Donación</label>
+                    <input class="form-control" type="text" id="txtTipo" />
+                    <input class="form-control" type="text" id="txtCantidad" />
+                    <input class="form-control" type="text" id="txtFecha_Registro" />
+                    <input class="form-control" type="text" id="txtFecha_Entrega" />
+                    <input class="form-control" type="text" id="txtEstado" />
+                    <input type="hidden" id="ID" value="-1" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button id="btnGrabarDirector" type="button" class="btn btn-primary">Grabar</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+</div>
+
+<script>
+
+    CargarListadoDirector();
+
+    function CargarListadoDirector() {
+        $.ajax({
+            type: "POST",
+            url: "/Administrador/Recepcion/Listado",
+            cache: false,
+            success: function (data) {
+                if (data != null) {
+                    $("#divListadoDonaciones").html(data);
+                } else {
+                    alert("Ocurrió un error en el listado de Donaciones");
+                }
+            }
+        });
+    }
+
+</script>

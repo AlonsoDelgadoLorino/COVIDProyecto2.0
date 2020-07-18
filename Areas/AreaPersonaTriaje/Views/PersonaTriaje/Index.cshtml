@@ -1,0 +1,135 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Main/Views/Shared/_Menulayout.cshtml";
+}
+
+<div style="padding-right: 100px;
+    padding-left: 100px;
+    margin-right: auto;
+    margin-left: auto;
+}">
+    <div class="alert alert-info">
+        <strong>Mantenimiento de Personas en Triaje</strong>
+    </div>
+    <hr />
+    <input type="button" class="btn btn-primary" value="Agregar Persona Triaje" id="btnAgregarPersona" />
+    <br />
+    <br />
+    <div class="alert alert-info">
+        <strong>Listado de Personas en Triaje</strong>
+    </div>
+    <br />
+    <div id="divListadoPersona">
+
+    </div>
+
+
+
+
+    <div id="modalPersona" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Mantenimiento de Personas en Triaje</h4>
+                </div>
+                <div class="modal-body">
+                    <label>Nombre de la Persona en Triaje</label>
+                    <input class="form-control" type="text" id="txtNombrePersona" />
+                    <label>Apellidos</label>
+                    <input class="form-control" type="text" id="txtApe" />
+                    <label>Edad</label>
+                    <input class="form-control" type="number" id="txtEdad" />
+                    <label>Sexo (M - F)</label>
+                    <input class="form-control" type="text" id="txtSexo" />
+                    <label>Ocupacion</label>
+                    <input class="form-control" type="text" id="txtOcupacion" />
+                    <label>Sintomas</label>
+                    <input class="form-control" type="text" id="txtSintomas" />
+                    <label>Direccion</label>
+                    <input class="form-control" type="text" id="txtDireccion" />
+                    <input type="hidden" id="hidCodPersona" value="-1" />
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button id="btnGrabarPersona" type="button" class="btn btn-primary">Grabar</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>
+
+    <script>
+
+    $("#btnGrabarPersona").click(function () {
+        var vNombrePersona = $("#txtNombrePersona").val();
+        var vCodPersona = $("#hidCodPersona").val();
+        var vApe = $("#txtApe").val();
+        var vEdad = $("#txtEdad").val();
+        var vSexo = $("#txtSexo").val();
+        var vOcu = $("#txtOcupacion").val();
+        var vSin = $("#txtSintomas").val();
+        var vDir = $("#txtDireccion").val();
+
+
+        $.ajax({
+            type: "POST",
+            url: "/AreaPersonaTriaje/PersonaTriaje/Grabar",
+            data: {
+                nombrePersona: vNombrePersona,
+                apellidos: vApe,
+                edad: vEdad,
+                sexo: vSexo,
+                ocupacion: vOcu,
+                sintomas: vSin,
+                direccion: vDir
+            },
+            cache: false,
+            success: function (data) {
+                if (data) {
+                    alert("Se registró correctamente");
+                    $("#modalPersona").modal("toggle");
+                    CargarListadoPersona();
+                } else {
+                    alert("Ocurrió un error al registrar a la Persona");
+                }
+            }
+        });
+    });
+
+
+    $("#btnAgregarPersona").click(function () {
+        $("#txtNombrePersona").val("");
+        $("#hidCodPersona").val("-1");
+    var vApe = $("#txtApe").val("");
+        var vEdad = $("#txtEdad").val("");
+        var vSexo = $("#txtSexo").val("");
+        var vOcu = $("#txtOcupacion").val("");
+        var vSin = $("#txtSintomas").val("");
+        var vDir = $("#txtDireccion").val("");
+        $("#modalPersona").modal();
+    });
+
+
+    CargarListadoPersona();
+
+    function CargarListadoPersona() {
+        $.ajax({
+            type: "POST",
+            url: "/AreaPersonaTriaje/PersonaTriaje/Listado",
+            cache: false,
+            success: function (data) {
+                console.log(data);
+                if (data != null) {
+                    $("#divListadoPersona").html(data);
+                } else {
+                    alert("Ocurrió un error en el listado de Personas");
+                }
+            }
+        });
+    }
+
+    </script>
+

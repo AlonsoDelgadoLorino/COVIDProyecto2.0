@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="navbar" class="header">
+    <h2 class="logo">#YoApoyoPerú</h2>
+    <input type="checkbox" id="chk">
+    <label for="chk" class="show-menu-btn">
+        <ion-icon class="ion" name="menu"></ion-icon>
+    </label>
+
+    <ul class="menu">
+        <a href="#ayudar">Como ayudar</a>
+        <a href="#W2help">Contactanos</a>
+        <a href="#conocenos">Conocenos</a>
+        <a href="@Url.Action("Login","PersonalAdmin",new { Area = "PersonalAdmin" })">Personal Administrativo</a>
+
+        <label for="chk" class="hide-menu-btn">
+            <ion-icon class="ion" name="close-outline"></ion-icon>
+        </label>
+    </ul>
+</div>
+
+<div class="banner-area">
+    <!-- revisar container prox ves -->
+    <div class="banner-text">
+        <h1 class="title-text">#YoApoyoPerú</h1>
+        <p class="menu-btn" onclick="location.href='@Url.Action("Menu","Main",new { Area = "Main" })';">Ir al menu</p>
+    </div>
+</div>
+
+<div class="page-section" id="ayudar">
+    <div class="text-center">
+        <h2 class="subtitle-text">¿Como apoyar?</h2>
+        <p style="text-align: justify;" class="paragraph-text">
+            #APOYAALOSQUELONECESITAN, Una iniciativa impulsada por los alumnos de Desarrollo Web de la Universidad Esan  con el objetivo de promover el apoyo a familias vulnerables llamando  a la generosidad mediante las donaciones y unidad como respuesta de emergencia social y sanitaria causada por el COVID-19
+        </p>
+    </div>
+
+</div>
+
+<div class="page-section" id="W2help">
+    <div class="text-center">
+        <h2 class="subtitle-text">Súmate A #QuedateEnCasa</h2>
+        <p class="main-text">Comparte tu acto de generosidad con #YoApoyoPeru</>
+    </div>
+</div>
+
+<section class="page-section" id="conocenos">
+    <div class="container-fluid">
+        <div class="text-center">
+            <h2 class="subtitle-text">¿Que es #YoApoyoPeru?</h2>
+            <p class="main-text">#YoApoyoPeru es un movimiento estudiantil impulsado por cinco universitarios que quiere incentivar y multiplicar las buenas acciones de las personas.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="texto2info" class="page-section">
+    <div class="container ">
+        <div class="text-center">
+            <a class="twitter-timeline" data-lang="es" data-width="1000" data-height="700" data-theme="white" href="https://twitter.com/larepublica_pe">h</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+        </div>
+    </div>
+</section>
+
+
+<section id="texto2info" class="page-section">
+    <div class="container ">
+        <div class="text-center">
+            <a class="twitter-timeline" data-lang="es" data-width="1000" data-height="700" data-theme="white" href="https://twitter.com/elcomercio_peru"></a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+        </div>
+    </div>
+</section>
+
+
+
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<script type="text/javascript">
+    window.addEventListener("scroll", function () {
+        let menuArea = document.getElementById('navbar');
+
+        if (window.pageYOffset > 40) {
+            menuArea.classList.add("cus-nav");
+        } else {
+            menuArea.classList.remove("cus-nav");
+        }
+    })
+</script>
+

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="PAData">
+  <DataContextMoniker Name="/PADataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="064aa22e-c204-4e15-9c7a-978c829bcb1f" absoluteBounds="4.5, 2.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/PADataDataContext/BOPersonalAdmin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dae5f5ea-5cd9-4a46-ae66-d5bab463ac23" absoluteBounds="4.515, 2.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

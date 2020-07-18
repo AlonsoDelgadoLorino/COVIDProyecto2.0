@@ -1,0 +1,32 @@
+﻿@using DACovid
+@{
+    List<Donacion> listado = (List<Donacion>)ViewBag.ListadoDonacion;
+}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tipo</th>
+            <th>Cantidad</th>
+            <th>Fecha_Registro</th>
+            <th>Fecha_Entrega</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Donacion item in listado)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Tipo</td>
+                <td>@item.Cantidad</td>
+                <td>@item.Fecha_Registro</td>
+                <td>@item.Fecha_Registro</td>
+                <td>@item.Estado</td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
